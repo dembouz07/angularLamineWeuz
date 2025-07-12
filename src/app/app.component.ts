@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'angular_km_gl_teacher_devoir';
+export class AppComponent implements OnInit {
+  constructor() {}
+
+  ngOnInit(): void {
+    console.log('Application TeacherApp démarrée');
+  }
 }
