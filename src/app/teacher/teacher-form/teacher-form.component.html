@@ -1,1 +1,61 @@
-<p>teacher-form works!</p>
+<form [formGroup]="teacherForm" (ngSubmit)="onSubmit()">
+  <!-- Prénom -->
+  <div class="mb-3">
+    <label>Prénom</label>
+    <input type="text" class="form-control" formControlName="first_name">
+    <div *ngIf="submitted && f['first_name'].errors" class="text-danger">
+      <span *ngIf="f['first_name'].errors['required']">Prénom requis</span>
+    </div>
+  </div>
+
+  <!-- Nom -->
+  <div class="mb-3">
+    <label>Nom</label>
+    <input type="text" class="form-control" formControlName="last_name">
+    <div *ngIf="submitted && f['last_name'].errors" class="text-danger">
+      <span *ngIf="f['last_name'].errors['required']">Nom requis</span>
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div class="mb-3">
+    <label>Email</label>
+    <input type="email" class="form-control" formControlName="email">
+    <div *ngIf="submitted && f['email'].errors" class="text-danger">
+      <span *ngIf="f['email'].errors['required']">Email requis</span>
+      <span *ngIf="f['email'].errors['email']">Format email invalide</span>
+    </div>
+  </div>
+
+  <!-- Téléphone -->
+  <div class="mb-3">
+    <label>Téléphone</label>
+    <input type="text" class="form-control" formControlName="phone">
+    <div *ngIf="submitted && f['phone'].errors" class="text-danger">
+      <span *ngIf="f['phone'].errors['pattern']">Numéro invalide</span>
+    </div>
+  </div>
+
+  <!-- Spécialité -->
+  <div class="mb-3">
+    <label>Spécialité</label>
+    <input type="text" class="form-control" formControlName="speciality">
+    <div *ngIf="submitted && f['speciality'].errors" class="text-danger">
+      <span *ngIf="f['speciality'].errors['required']">Spécialité requise</span>
+    </div>
+  </div>
+
+  <!-- Date d'embauche -->
+  <div class="mb-3">
+    <label>Date d'embauche</label>
+    <input type="date" class="form-control" formControlName="hiring_date">
+    <div *ngIf="submitted && f['hiring_date'].errors" class="text-danger">
+      <span *ngIf="f['hiring_date'].errors['required']">Date requise</span>
+    </div>
+  </div>
+
+  <!-- Bouton -->
+  <button type="submit" class="btn btn-primary">
+    {{ id ? 'Modifier' : 'Créer' }}
+  </button>
+</form>

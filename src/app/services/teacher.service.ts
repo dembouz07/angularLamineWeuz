@@ -4,7 +4,10 @@ import { Teacher } from '../models/teacher';
 
 @Injectable({ providedIn: 'root' })
 export class TeacherService {
-  private URL = 'http://127.0.0.1:8000/api/teachers';
+  //private URL = 'http://172.20.10.5:8000/api/v1/teachers';
+
+  private URL = 'https://f02c506ab85f.ngrok-free.app/api/v1/teachers';
+
 
   constructor(private http: HttpClient) {}
 

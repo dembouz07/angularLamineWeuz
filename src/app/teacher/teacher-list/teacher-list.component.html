@@ -1,1 +1,40 @@
 <p>teacher-list works!</p>
+<h2>Liste des enseignants</h2>
+
+<!-- Bouton pour ajouter un nouvel enseignant -->
+<a routerLink="/addTeacher" class="btn btn-success mb-3">Ajouter un enseignant</a>
+
+<!-- Tableau d'affichage -->
+<table class="table table-bordered">
+  <thead class="table-light">
+    <tr>
+      <th>ID</th>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Email</th>
+      <th>Téléphone</th>
+      <th>Spécialité</th>
+      <th>Date embauche</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <!-- Affichage dynamique avec *ngFor -->
+    <tr *ngFor="let t of teachers">
+      <td>{{ t.id }}</td>
+      <td>{{ t.first_name }}</td>
+      <td>{{ t.last_name }}</td>
+      <td>{{ t.email }}</td>
+      <!-- Affiche un tiret si le téléphone est null ou vide -->
+      <td>{{ t.phone || '-' }}</td>
+      <td>{{ t.speciality }}</td>
+      <td>{{ t.hiring_date }}</td>
+      <td>
+        <!-- Boutons d'action -->
+        <a [routerLink]="['/editTeacher', t.id]" class="btn btn-warning me-2">Modifier</a>
+        <button class="btn btn-danger" (click)="deleteTeacher(t.id)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
