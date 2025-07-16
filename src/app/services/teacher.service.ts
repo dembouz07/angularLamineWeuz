@@ -8,7 +8,7 @@ import { HttpHeaders } from '@angular/common/http';
 export class TeacherService {
   //private URL = 'http://172.20.10.5:8000/api/v1/teachers';
 
-  private URL = "https://fbd847acbd3e.ngrok-free.app/api/v1/teachers";
+  private URL = "https://cb8130a9937a.ngrok-free.app/api/v1/teachers";
 
 
   constructor(private http: HttpClient) {}
