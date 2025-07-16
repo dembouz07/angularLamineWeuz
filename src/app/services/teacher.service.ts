@@ -27,7 +27,7 @@ export class TeacherService {
   }
 
   addTeacher(data: Teacher) {
-    return this.http.post<Teacher>(this.URL, data, { headers: this.headers });
+    return this.http.post<Teacher>(this.URL);
   }
 
   updateTeacher(data: Teacher, id: number) {

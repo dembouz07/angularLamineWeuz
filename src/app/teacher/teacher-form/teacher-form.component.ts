@@ -56,7 +56,6 @@ export class TeacherFormComponent implements OnInit {
       if (this.id == 0) {
         this.teacherService.addTeacher(this.teacherForm.value).subscribe(
           () => {
-            console.log(this.teacherForm.value);
             this.router.navigateByUrl('/teachers');
           },
           (error) => {
