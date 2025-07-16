@@ -53,7 +53,10 @@ export class TeacherFormComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.teacherForm.valid) {
-      if (this.id == 0) {
+      const formData = this.teacherForm.value;
+      console.log('Données envoyées à addTeacher :', formData);
+
+      if (this.id) {
         this.teacherService.updateTeacher(this.teacherForm.value, this.id).subscribe(
           () => {
             console.log("Modifié avec succès");
@@ -66,7 +69,7 @@ export class TeacherFormComponent implements OnInit {
       } else {
         this.teacherService.addTeacher(this.teacherForm.value).subscribe(
           () => {
-            console.log(this.teacherForm.value);
+            console.log("Créé avec succès");
             this.router.navigateByUrl('/teachers');
           },
           (error) => {
