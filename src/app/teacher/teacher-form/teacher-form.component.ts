@@ -66,7 +66,7 @@ export class TeacherFormComponent implements OnInit {
       } else {
         this.teacherService.addTeacher(this.teacherForm.value).subscribe(
           () => {
-            console.log("Créé avec succès");
+            console.log(this.teacherForm.value);
             this.router.navigateByUrl('/teachers');
           },
           (error) => {
